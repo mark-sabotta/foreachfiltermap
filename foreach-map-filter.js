@@ -36,6 +36,7 @@ function addKeyAndValue(arr,key,value){
 }
 
 function vowelCount(str){
+    //I know this solution is significantally worse than the solution provided. I glanced at it, and I want to try to reproduce it on my own from memory later
     let vowelArray = [0, 0, 0, 0, 0];
     let arr = Array.from(str);
     arr.forEach(function(value, array){
@@ -84,7 +85,7 @@ function doubleValuesWithMap(arr) {
 
 
 function valTimesIndex(arr){
-    
+    //this should have been a map
     const newArr = [];
     arr.forEach(function(value, index, array){
         newArr.push(value*index);
@@ -94,21 +95,17 @@ function valTimesIndex(arr){
 
 
 function extractKey(arr, key){
-    const newArr = [];
-    arr.forEach(function(value){
-        newArr.push(value[key]);
+    return arr.map(function(value){
+        return value[key];
     });
-    return newArr;
 }
 
 
 function extractFullName(arr){
-    let newArr = [];
-    arr.forEach(function(value) {
-        let fullName = value.first + " " + value.last;
-        newArr.push(fullName);
+    
+    return arr.map(function(value) {
+        return value.first + " " + value.last;
     })
-    return newArr;
 }
 
 function filterByValue(arr, key) {
